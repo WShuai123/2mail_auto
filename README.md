@@ -6,5 +6,6 @@ After the model training is completed, the results will be automatically sent to
 因此，这些代码可以实现：
 + 训练完一个epoch发送一个训练结果
 + 训练完全部的epoch，一次发送全部的训练结果
+
 但是仓库里的只是最基础的代码，若要实现以上两种功能，需要在你训练的模型的训练脚本里进行调整。
 如demo.py所示
