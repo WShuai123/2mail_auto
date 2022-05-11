@@ -24,3 +24,6 @@ def send_email(subject="No subject", content="I am boring"):
     print("Email send successfully")
   except smtplib.SMTPException:
     print("Error: email send failed")
+
+if __name__ == '__main__':
+  send_email(subject="Training finished", content="Test")
