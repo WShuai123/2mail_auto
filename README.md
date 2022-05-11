@@ -19,4 +19,4 @@ demo.py添加的自动发邮件的代码有：
 + 第134行
 
 最终实现的效果如图：
-![Uploading test.jpg…]()
+https://github.com/WShuai123/2mail_auto/blob/main/test.jpg?raw=true
