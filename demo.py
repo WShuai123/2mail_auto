@@ -113,13 +113,13 @@ def main(args):
         # train
         train_loss, train_acc = train_one_epoch(model=model,optimizer=optimizer,data_loader=train_loader,device=device,epoch=epoch)
         
-        # email
+        # 存储每个训练过程得到的损失和准确率
         content+='[train epoch:{}]loss:{:.3f},acc:{:.3f}'.format(epoch,train_loss,train_acc) + '\n'
        
         # validate
         val_loss, val_acc = evaluate(model=model,data_loader=val_loader,device=device, epoch=epoch)
         
-        # email
+        # 存储每个验证过程得到的损失和准确率
         content+='[val epoch:{}]loss:{:.3f},acc:{:.3f}'.format(epoch,val_loss,val_acc) + '\n'
         
         tags = ["train_loss", "train_acc", "val_loss", "val_acc", "learning_rate"]
@@ -130,7 +130,7 @@ def main(args):
         tb_writer.add_scalar(tags[4], optimizer.param_groups[0]["lr"], epoch)
 
         torch.save(model.state_dict(), "./weights/model-{}.pth".format(epoch))
-    # email，调用函数
+    # email，调用函数发送邮件
     send_email(subject='Training finished',content=content)
     
 
