@@ -114,13 +114,13 @@ def main(args):
         train_loss, train_acc = train_one_epoch(model=model,optimizer=optimizer,data_loader=train_loader,device=device,epoch=epoch)
         
         # 存储每个训练过程得到的损失和准确率
-        content+='[train epoch:{}]loss:{:.3f},acc:{:.3f}'.format(epoch,train_loss,train_acc) + '\n'
+        content+='[train epoch {}] loss: {:.3f}, acc: {:.3f}'.format(epoch,train_loss,train_acc) + '\n'
        
         # validate
         val_loss, val_acc = evaluate(model=model,data_loader=val_loader,device=device, epoch=epoch)
         
         # 存储每个验证过程得到的损失和准确率
-        content+='[val epoch:{}]loss:{:.3f},acc:{:.3f}'.format(epoch,val_loss,val_acc) + '\n'
+        content+='[valid epoch {}] loss: {:.3f}, acc: {:.3f}'.format(epoch,val_loss,val_acc) + '\n'
         
         tags = ["train_loss", "train_acc", "val_loss", "val_acc", "learning_rate"]
         tb_writer.add_scalar(tags[0], train_loss, epoch)
